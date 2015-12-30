@@ -1,0 +1,164 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006dc8f0e0, pid=10764, tid=10336
+#
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.3-b02 mixed mode windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x3ff0e0]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000005c31c00):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=10336, stack(0x0000000006510000,0x0000000006610000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000000000018
+
+Registers:
+EAX=0x000000000000001c, EBX=0x0000000000000000, ECX=0x0000000000000018, EDX=0x0000000000000002
+ESP=0x000000000660f7d0, EBP=0x0000000005c3a630, ESI=0x0000000000000018, EDI=0x0000000000000002
+EIP=0x000000006dc8f0e0, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000000660f7d0)
+0x000000000660f7d0:   0000000005c31c00 000000006da3a514
+0x000000000660f7e0:   0000000005c31c00 0000000000000000
+0x000000000660f7f0:   0000000005c31dc0 000000006da4cffc
+0x000000000660f800:   0000000005c31dc0 0000000005c31c00
+0x000000000660f810:   0000000005c62d30 0000000005c62d30
+0x000000000660f820:   0000000005c3a630 0000000005c3afc0
+0x000000000660f830:   0000000005c3afd0 0000000005c3b3a8
+0x000000000660f840:   0000000005c31c00 0000000000000000
+0x000000000660f850:   0000000005c62d30 000000000660f970
+0x000000000660f860:   0000000000000000 0000000000000000
+0x000000000660f870:   0000000000000000 0000000000000000
+0x000000000660f880:   0000000000000000 000000006d4c76da
+0x000000000660f890:   000000000660f918 000000000660f970
+0x000000000660f8a0:   0000000005c62d30 0000000005c31dc0
+0x000000000660f8b0:   0000000005c31dc0 000000006d31500a
+0x000000000660f8c0:   0000000000000000 000000000660fed0 
+
+Instructions: (pc=0x000000006dc8f0e0)
+0x000000006dc8f0d0:   48 63 fa 7e 37 66 66 66 90 66 66 90 66 66 66 90
+0x000000006dc8f0e0:   42 0f b7 14 49 8d 42 ff 66 3d 7e 00 77 05 41 ff 
+
+
+Stack: [0x0000000006510000,0x0000000006610000],  sp=0x000000000660f7d0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x3ff0e0]
+C  0x0000000005c3afc0
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000005c65000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=12312, stack(0x0000000006c80000,0x0000000006d80000)]
+  0x0000000005c5cc00 JavaThread "CompilerThread1" daemon [_thread_blocked, id=11968, stack(0x0000000006b80000,0x0000000006c80000)]
+  0x0000000005c5c000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=11864, stack(0x0000000006a80000,0x0000000006b80000)]
+  0x0000000005c46000 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=12116, stack(0x00000000068a0000,0x00000000069a0000)]
+  0x0000000005c45000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=12532, stack(0x00000000066d0000,0x00000000067d0000)]
+=>0x0000000005c31c00 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=10336, stack(0x0000000006510000,0x0000000006610000)]
+  0x0000000005c27800 JavaThread "Attach Listener" daemon [_thread_blocked, id=12012, stack(0x0000000006120000,0x0000000006220000)]
+  0x0000000005c27000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11640, stack(0x0000000006020000,0x0000000006120000)]
+  0x0000000005bc5000 JavaThread "Finalizer" daemon [_thread_blocked, id=12268, stack(0x0000000005f20000,0x0000000006020000)]
+  0x0000000005bc4800 JavaThread "Reference Handler" daemon [_thread_blocked, id=13096, stack(0x0000000005e20000,0x0000000005f20000)]
+  0x000000000034c400 JavaThread "main" [_thread_blocked, id=11784, stack(0x0000000002100000,0x0000000002200000)]
+
+Other Threads:
+  0x0000000005bc0800 VMThread [stack: 0x0000000005d20000,0x0000000005e20000] [id=12420]
+  0x0000000005c6a000 WatcherThread [stack: 0x0000000006d80000,0x0000000006e80000] [id=11704]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 27776K, used 952K [0x00000000c3550000, 0x00000000c5450000, 0x00000000e25f0000)
+  eden space 23808K, 4% used [0x00000000c3550000,0x00000000c363e180,0x00000000c4c90000)
+  from space 3968K, 0% used [0x00000000c5070000,0x00000000c5070000,0x00000000c5450000)
+  to   space 3968K, 0% used [0x00000000c4c90000,0x00000000c4c90000,0x00000000c5070000)
+ PSOldGen        total 63552K, used 0K [0x00000000853f0000, 0x0000000089200000, 0x00000000c3550000)
+  object space 63552K, 0% used [0x00000000853f0000,0x00000000853f0000,0x0000000089200000)
+ PSPermGen       total 21248K, used 2988K [0x000000007fff0000, 0x00000000814b0000, 0x00000000853f0000)
+  object space 21248K, 14% used [0x000000007fff0000,0x00000000802db118,0x00000000814b0000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\bin\javaw.exe
+0x0000000077010000 - 0x00000000771b9000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000076df0000 - 0x0000000076f10000 	C:\Windows\system32\kernel32.dll
+0x000007fefd100000 - 0x000007fefd16c000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe550000 - 0x000007fefe62b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefd340000 - 0x000007fefd3df000 	C:\Windows\system32\msvcrt.dll
+0x000007fefd320000 - 0x000007fefd33f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe420000 - 0x000007fefe54d000 	C:\Windows\system32\RPCRT4.dll
+0x0000000076f10000 - 0x000000007700a000 	C:\Windows\system32\USER32.dll
+0x000007fefd3e0000 - 0x000007fefd447000 	C:\Windows\system32\GDI32.dll
+0x000007fefebb0000 - 0x000007fefebbe000 	C:\Windows\system32\LPK.dll
+0x000007fefe2f0000 - 0x000007fefe3b9000 	C:\Windows\system32\USP10.dll
+0x000007fefd2f0000 - 0x000007fefd31e000 	C:\Windows\system32\IMM32.DLL
+0x000007fefe1e0000 - 0x000007fefe2e9000 	C:\Windows\system32\MSCTF.dll
+0x000007fefcce0000 - 0x000007fefcd12000 	C:\Windows\system32\nvinitx.dll
+0x000000000f000000 - 0x000000000f006000 	C:\Program Files\NVIDIA Corporation\CoProcManager\detoured.dll
+0x000007fef9490000 - 0x000007fef94c3000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvd3d9wrapx.dll
+0x000007feff0a0000 - 0x000007feff277000 	C:\Windows\system32\SETUPAPI.dll
+0x000007fefcde0000 - 0x000007fefce16000 	C:\Windows\system32\CFGMGR32.dll
+0x000007fefd1f0000 - 0x000007fefd2c7000 	C:\Windows\system32\OLEAUT32.dll
+0x000007fefebc0000 - 0x000007fefedc3000 	C:\Windows\system32\ole32.dll
+0x000007fefcff0000 - 0x000007fefd00a000 	C:\Windows\system32\DEVOBJ.dll
+0x000007fef9460000 - 0x000007fef9483000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvdxgiwrapx.dll
+0x000000006d890000 - 0x000000006de48000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\server\jvm.dll
+0x000007fefaea0000 - 0x000007fefaedb000 	C:\Windows\system32\WINMM.dll
+0x000000006d3b0000 - 0x000000006d3ba000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\hpi.dll
+0x00000000771e0000 - 0x00000000771e7000 	C:\Windows\system32\PSAPI.DLL
+0x000000006d4c0000 - 0x000000006d4f4000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\jdwp.dll
+0x000000006d6d0000 - 0x000000006d6d8000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\npt.dll
+0x000000006d800000 - 0x000000006d80e000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\verify.dll
+0x000000006d450000 - 0x000000006d477000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\java.dll
+0x000000006d850000 - 0x000000006d862000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\zip.dll
+0x000000006d310000 - 0x000000006d319000 	E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\dt_socket.dll
+0x000007fefe6d0000 - 0x000007fefe71d000 	C:\Windows\system32\WS2_32.dll
+0x000007fefe720000 - 0x000007fefe728000 	C:\Windows\system32\NSI.dll
+0x000007fefb7c0000 - 0x000007fefb7d5000 	C:\Windows\system32\NLAapi.dll
+0x000007fef5de0000 - 0x000007fef5df5000 	C:\Windows\system32\napinsp.dll
+0x000007fef5b10000 - 0x000007fef5b29000 	C:\Windows\system32\pnrpnsp.dll
+0x000007fefc510000 - 0x000007fefc565000 	C:\Windows\System32\mswsock.dll
+0x000007fefc390000 - 0x000007fefc3eb000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef5b00000 - 0x000007fef5b0b000 	C:\Windows\System32\winrnr.dll
+0x000007fef5af0000 - 0x000007fef5b00000 	C:\Windows\system32\wshbth.dll
+0x000000006f980000 - 0x000000006f9a6000 	C:\Program Files\Bonjour\mdnsNSP.dll
+0x000007fefae00000 - 0x000007fefae27000 	C:\Windows\system32\Iphlpapi.DLL
+0x000007fefad70000 - 0x000007fefad7b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fefacd0000 - 0x000007fefad23000 	C:\Windows\System32\fwpuclnt.dll
+0x000007fef6b10000 - 0x000007fef6b18000 	C:\Windows\system32\rasadhlp.dll
+0x000007fefbf10000 - 0x000007fefbf17000 	C:\Windows\System32\wshtcpip.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:59541 -Dfile.encoding=UTF-8 
+java_command: t
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=E:\Java\jdk1.8.0_45
+CLASSPATH=.;E:\Java\jdk1.8.0_45\lib\dt.jar;E:\Java\jdk1.8.0_45\lib\tools.jar;
+PATH=E:\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;E:\Java\jdk1.8.0_45\bin;E:\Java\jdk1.8.0_45\jre\bin
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7601 Service Pack 1
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 10 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 6098112k(2198832k free), swap 12194388k(7544116k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.3-b02) for windows-amd64 JRE (1.6.0_13-b03), built on Mar  9 2009 10:50:19 by "java_re" with MS VC++ 8.0
+
+time: Tue Dec 29 15:44:31 2015
+elapsed time: 962 seconds
+
