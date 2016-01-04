@@ -33,8 +33,8 @@ public class strToNumTest {
 			}
 			
 		}
-		System.out.print(Number_After);
-		
+		System.out.print(Number_After+"\n");
+
 
 	}
 

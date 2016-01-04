@@ -17,12 +17,12 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
 
-public class RBAI {
+public class RBAI1 {
 	
 	Hashtable <String, String> mainDic_datatable = new Hashtable<String, String>();
 	Hashtable <String, String> additionalDic_datatable = new Hashtable<String, String>();
 	
-	public RBAI() {
+	public RBAI1() {
 		Init();
 	}
 	
@@ -45,7 +45,6 @@ public class RBAI {
 	
 			} 
 		} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 	    }
 		return lst;
@@ -55,14 +54,11 @@ public class RBAI {
 	
 	public void mainAlgorithm(List<String> lst) {
 		
-		String Address_Before = "";
-		String Address_After = "";
-		String Address_temp = "";
+		String Address_Before="";
+		String Address_After="";
 		
 		rulesMatch match = new rulesMatch();
-		strToNum numbers = new strToNum();
-		numToStr address = new numToStr();
-		//strToNum2 Numbers2 = new strToNum2();
+		strToNum Numbers = new strToNum();
 		
 		try {
 			File f =new File("Data/RBAI_result.txt");
@@ -75,81 +71,68 @@ public class RBAI {
 			for (int i=0;i<lst.size();i++) {
 				Address_Before = lst.get(i);
 				int len = Address_Before.length();
-//				Vector<Integer> Numbers_Before = new Vector<Integer>();
-//				Vector<Integer> Numbers_temp = new Vector<Integer>();
-//				Vector<Integer> Numbers_After = new Vector<Integer>();
 				String Numbers_Before = "";
 				String Numbers_temp = "";
 				String Numbers_After = "";
-				//int[] Numbers_Before = new int[len+1];
 				//输出原地址
 				write.write(Address_Before + "::");
-//				//将每个字符对应到数字
-//				for (int k=0;k<len;k++) {       //遍历每个地址中的每一个字符
-//					if (isExistM(Address_Before.substring(k, k+1))) {   //判断字符是否与主特征辞典匹配
-//						Numbers_Before += "1";
-//						//System.out.print(1);
-//						if ((k+1)<len && 
-//								Address_Before.substring(k, k+1).equals(Address_Before.substring(k+1, k+2))) { 
-//							//连续的两个字符相同且都是主特征辞则在11后面加字符“3”
-//							Numbers_Before += "1";
-//							//System.out.print(1);
-//							Numbers_Before += "3";
-//							//System.out.print(3);
-//							k=k+1;
-//						}
-//					}
-//					else if (isExistA(Address_Before.substring(k, k+1))) {   //字符是附属特征字,"2"
-//						Numbers_Before += "2";
-//						//System.out.print(2);
-//					}
-//					else {
-//						Numbers_Before += "0";//System.out.print(0);  //普通字符用“0”
-//					}
-//					
-//				}
-//				write.write(Numbers_Before + "::");
-//				//System.out.print("\n");
-//				//将数字串里面的连续0合并成一个0
-//				for (int j =0;j<Numbers_Before.length();j++) {
-//					if ( ! Numbers_Before.substring(j, j+1).equals("0")) {
-//						Numbers_temp += Numbers_Before.substring(j, j+1);
-//					}
-//					else if (Numbers_Before.substring(j, j+1).equals("0")) {
-//						if (j<Numbers_Before.length()-1) {
-//							Numbers_temp += Numbers_Before.substring(j, j+1);
-//							if (Numbers_Before.substring(j+1, j+2).equals("0")) {
-//								int m = 0;
-//								for (m=j;m<Numbers_Before.length();m++) {
-//									if (Numbers_Before.substring(m, m+1).equals("0")){
-//										continue;
-//									}
-//									break;
-//								}
-//								j = m-1;
-//							}
-//						}
-//						else {
-//							Numbers_temp += Numbers_Before.substring(j, j+1);
-//						}
-//					}
-//					
-//				}
-//				//在数字串末尾加一个结束字符9
-//				Numbers_temp += "9";
-				//将原地址变成数字字符串
-				Numbers_Before = numbers.strToNum1(Address_Before);
-				//write.write(Numbers_Before + "::");
-				Numbers_temp = numbers.strToNum2(Numbers_Before);
-				//write.write(Numbers_temp + "::");
-				//调用rulesMatch对Numbers_Before进行规则匹配
-				Numbers_After = match.rulesMatch(Numbers_temp);
-				//write.write(Numbers_After + "::");
-				//将数字字符串还原成原地址
-				Address_temp = address.numToStr1(Numbers_After, Numbers_Before);
-				write.write(Address_temp + "::");
-				Address_After = address.numToStr2(Address_temp, Address_Before);
-				write.write(Address_After);
+				//将每个字符对应到数字
+				for (int k=0;k<len;k++) {       //遍历每个地址中的每一个字符
+					if (isExistM(Address_Before.substring(k, k+1))) {   //判断字符是否与主特征辞典匹配
+						Numbers_Before += "1";
+						//System.out.print(1);
+						if ((k+1)<len && 
+								Address_Before.substring(k, k+1).equals(Address_Before.substring(k+1, k+2))) { 
+							//连续的两个字符相同且都是主特征辞则在11后面加字符“3”
+							Numbers_Before += "1";
+							//System.out.print(1);
+							Numbers_Before += "3";
+							//System.out.print(3);
+							k=k+1;
+						}
+					}
+					else if (isExistA(Address_Before.substring(k, k+1))) {   //字符是附属特征字,"2"
+						Numbers_Before += "2";
+						//System.out.print(2);
+					}
+					else {
+						Numbers_Before += "0";//System.out.print(0);  //普通字符用“0”
+					}
+					
+				}
+				write.write(Numbers_Before + "::");
+				//System.out.print("\n");
+				//将数字串里面的连续0合并成一个0
+				for (int j =0;j<Numbers_Before.length();j++) {
+					if ( ! Numbers_Before.substring(j, j+1).equals("0")) {
+						Numbers_temp += Numbers_Before.substring(j, j+1);
+					}
+					else if (Numbers_Before.substring(j, j+1).equals("0")) {
+						if (j<Numbers_Before.length()-1) {
+							Numbers_temp += Numbers_Before.substring(j, j+1);
+							if (Numbers_Before.substring(j+1, j+2).equals("0")) {
+								int m = 0;
+								for (m=j;m<Numbers_Before.length();m++) {
+									if (Numbers_Before.substring(m, m+1).equals("0")){
+										continue;
+									}
+									break;
+								}
+								j = m-1;
+							}
+						}
+						else {
+							Numbers_temp += Numbers_Before.substring(j, j+1);
+						}
+					}
+					
+				}
+				//在数字串末尾加一个结束字符9
+				Numbers_temp += "9";
+				write.write(Numbers_temp + "::");
+				Numbers_After = match.rulesMatch(Numbers_temp);//调用rulesMatch对Numbers_Before进行规则匹配
+				//System.out.print(Numbers_Before + "\n");
+				write.write(Numbers_After);
 				write.write("\n");
 
 			}
@@ -213,7 +196,7 @@ public class RBAI {
 
 		long startTime = System.currentTimeMillis();
 		
-		RBAI seg = new RBAI();
+		RBAI1 seg = new RBAI1();
 		List lst = seg.readOrg();
 		seg.mainAlgorithm(lst);
 		
